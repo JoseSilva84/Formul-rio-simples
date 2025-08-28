@@ -1,1 +1,1 @@
-const nomes = []
+const nomes = [];

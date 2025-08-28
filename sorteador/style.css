@@ -1,0 +1,23 @@
+#reset {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: aliceblue;
+}
+
+.input-nome{
+    width: 20rem;
+    text-align: center;
+}
+.button-sorteio {
+    background-color: lightgray;
+    width: 20rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.button-sorteio:hover {
+    background-color: darkgray;
+}
