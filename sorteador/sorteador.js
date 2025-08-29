@@ -1,6 +1,7 @@
 const nomes = [];
 
 const buttonAdicionar = document.querySelector("#sorteioAdicionar");
+const sortear = document.querySelector("#sortear");
 
 const adicionar = (event) => {
     event.preventDefault();
@@ -14,3 +15,10 @@ const adicionar = (event) => {
 };
 
 buttonAdicionar.addEventListener("click", adicionar);
+
+const sortearNome = (nomes) => {
+    aleatorio = Math.floor(Math.random() * nomes.length);
+    alert(nomes[aleatorio]);
+}
+
+sortear.addEventListener("click", () => sortearNome(nomes));
