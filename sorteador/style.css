@@ -8,6 +8,11 @@ body {
     background-color: aliceblue;
 }
 
+h2 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    text-align: center;
+}
 .input-nome{
     width: 20rem;
     text-align: center;

@@ -8,13 +8,9 @@ const adicionar = (event) => {
     nomes.push(nome);
     console.log(nomes);
     let listaNomes = document.createElement("ul");
-    for (let i = 0; i < nomes.length; i++) {
-        let item = document.createElement("li");
-        item.textContent = nomes[i];
-        listaNomes.appendChild(item);
-    }
-
+    listaNomes.textContent = nomes[nomes.length - 1];
     document.body.appendChild(listaNomes);
+    listaNomes.style.textAlign = "center";
 };
 
 buttonAdicionar.addEventListener("click", adicionar);
