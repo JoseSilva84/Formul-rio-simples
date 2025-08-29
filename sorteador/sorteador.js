@@ -2,6 +2,8 @@ const nomes = [];
 
 const buttonAdicionar = document.querySelector("#sorteioAdicionar");
 const sortear = document.querySelector("#sortear");
+// const listaNomes = document.querySelector("#listaNomes");
+// listaNomes.innerHTML = "";
 
 const adicionar = (event) => {
     event.preventDefault();
@@ -12,6 +14,8 @@ const adicionar = (event) => {
     listaNomes.textContent = nomes[nomes.length - 1];
     document.body.appendChild(listaNomes);
     listaNomes.style.textAlign = "center";
+    listaNomes.style.backgroundColor = "lightgray";
+    listaNomes.style.display = "block";
 };
 
 buttonAdicionar.addEventListener("click", adicionar);

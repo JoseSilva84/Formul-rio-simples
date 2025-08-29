@@ -5,14 +5,19 @@
 }
 
 body {
-    background-color: aliceblue;
+    /* background-color: rgb(217, 230, 240); */
+    background-image: url(./img/vivafeliz.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    margin: 0;
 }
 
 h2 {
     font-size: 1.5rem !important;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
     text-align: center;
+    color: green;
     font-weight: bold !important;
 
 }
@@ -20,6 +25,8 @@ h2 {
 .input-nome{
     width: 20rem;
     text-align: center;
+    background-color: transparent;
+    color: green;
 }
 
 .button-sorteio {
@@ -28,6 +35,7 @@ h2 {
     border-radius: 10px;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
+    color: green;
     cursor: pointer;
 }
 
@@ -39,5 +47,6 @@ h2 {
     background-color: lightgray;
     width: 20rem;
     border-radius: 10px;
+    color: green;
     cursor: pointer;
 }
