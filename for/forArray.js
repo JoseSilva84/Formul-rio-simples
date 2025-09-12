@@ -27,6 +27,9 @@ document.querySelector('form').addEventListener('submit', function(event) {
         document.body.appendChild(successMessage);
         participante.disabled = true;
         button.disabled = true;
-    };
+        setTimeout(() => {
+            alert('Limite de participantes atingido.');
+        }, 1000);
+    }
 });
 
