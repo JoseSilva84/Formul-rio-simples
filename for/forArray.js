@@ -2,7 +2,6 @@ const participante = document.getElementById('nome');
 const button = document.getElementsByTagName('button')[0];
 const nomes = [];
 const cores = ['blue', 'red', 'green'];
-const styleAdicional = [{ textAlign: 'center', padding: '10px' }];
 const participante1 = document.getElementById('participante1');
 const participante2 = document.getElementById('participante2');
 const participante3 = document.getElementById('participante3');
@@ -10,6 +9,7 @@ const participante3 = document.getElementById('participante3');
 document.querySelector('form').addEventListener('submit', function(event) {
     event.preventDefault();
     nomes.push(participante.value);
+    participante.value = '';
     participante1.innerText = nomes[0] || '';
     participante1.style.color = cores[0];
     participante1.style.textAlign = 'center';
