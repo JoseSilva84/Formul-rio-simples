@@ -1,4 +1,5 @@
 const participante = document.getElementById('nome');
+const button = document.getElementsByTagName('button')[0];
 const nomes = [];
 const cores = ['blue', 'red', 'green'];
 const styleAdicional = [{ textAlign: 'center', padding: '10px' }];
@@ -24,6 +25,8 @@ document.querySelector('form').addEventListener('submit', function(event) {
         successMessage.style.textAlign = 'center';
         successMessage.style.color = 'gray';
         document.body.appendChild(successMessage);
+        participante.disabled = true;
+        button.disabled = true;
     };
 });
 
