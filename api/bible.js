@@ -92,4 +92,7 @@ const apiUrl = 'https://bible-api.com/data/almeida';
 buscarVersiculoBtn.addEventListener('click', (event) => {
     event.preventDefault();
     const livroValue = livro.value.trim();
+    if (livro.value) {
+        
+    }
 });
