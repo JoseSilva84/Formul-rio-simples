@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Bíblia Online Pessoal</title>
+</head>
+<body>
+    <h1>Bíblia Online Pessoal</h1>
+    <div class="input-container">
+        <select name="secao" id="secao">
+            <option value="Antigo Testamento" id="antigoTestamento">Antigo Testamento</option>
+            <option value="Novo Testamento" id="novoTestamento">Novo Testamento</option>
+        </select>
+        <select name="livro" id="livro">
+
+        <input id="capitulo" type="number" placeholder="Capítulo (ex: 1)">
+        <input id="verso" type="number" placeholder="Versículo (ex: 1)">
+        <button id="buscarVersiculo">Buscar Versículo</button>
+    </div>
+    <div id="result"></div>
+    <script src="bible.js"></script>
+</body>
+</html>
