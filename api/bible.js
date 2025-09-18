@@ -145,3 +145,18 @@ buscarVersiculoBtn.addEventListener('click', async (event) => {
     // console.log(data.text);
     resultDiv.innerHTML = data.text;
 });
+
+verso.addEventListener('input', async (event) => {
+    event.preventDefault();
+
+    const input = livro.value;
+
+    const apiUrl = await fetch(`https://bible-api.com/${input}+${capitulo.value}:${verso.value}?translation=almeida`);
+
+    const {book_id, chapter, verse, text} = await apiUrl.json();
+    const data = {book_id, chapter, verse, text};
+
+    console.log(data.book_id);
+    // console.log(data.text);
+    resultDiv.innerHTML = data.text;
+});
