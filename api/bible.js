@@ -142,5 +142,5 @@ buscarVersiculoBtn.addEventListener('click', async (event) => {
 
     console.log(data.book_id);
     // console.log(data.text);
-    resultDiv.innerText = data.text;
+    resultDiv.innerHTML = data.text;
 });

@@ -28,7 +28,12 @@ select {
 
 h1 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
+}
+h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    text-transform: uppercase;
 }
 
 input {
@@ -53,10 +58,12 @@ button:hover {
 
 #result {
     background-color: rgba(255, 255, 255, 0.5);
-    width: 300px;
+    width: 800px;
     margin: 20px auto 0 auto;
     padding: 15px;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     min-height: 100px;
+    font-size: 40px;
+    text-align: center;
 }
