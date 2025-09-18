@@ -129,12 +129,13 @@ secao.addEventListener('change', () => {
     }
 });
 
+// const tipo = capitulo.value && verso.value ? 'click' : 'blur';
+
 buscarVersiculoBtn.addEventListener('click', async (event) => {
     event.preventDefault();
 
     const input = livro.value;
 
-    // const apiUrl = await fetch(`https://bible-api.com/data/almeida/${input}/${capitulo.value}`);
     const apiUrl = await fetch(`https://bible-api.com/${input}+${capitulo.value}:${verso.value}?translation=almeida`);
 
     const {book_id, chapter, verse, text} = await apiUrl.json();
