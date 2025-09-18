@@ -55,7 +55,7 @@ secao.addEventListener('change', () => {
     } else if (secao.value === novoTestamento.value) {
             livro.innerHTML = `
                 <option value="selecao2" selected>Selecione o livro</option>
-                <option value="Mat">Mateus</option>
+                <option value="MAt">Mateus</option>
                 <option value="MRK">Marcos</option>
                 <option value="LUK">Lucas</option>
                 <option value="JHN">João</option>
@@ -86,19 +86,17 @@ secao.addEventListener('change', () => {
     }
 });
 
-
 buscarVersiculoBtn.addEventListener('click', async (event) => {
     event.preventDefault();
 
     const input = livro.value;
 
-    // const apiUrl = await 'https://bible-api.com/data/almeida/GEN/2';
-    const apiUrl = await fetch(`https://bible-api.com/data/almeida/${input}/${capitulo.value}`);
+    // const apiUrl = await fetch(`https://bible-api.com/data/almeida/${input}/${capitulo.value}`);
+    const apiUrl = await fetch(`https://bible-api.com/${input}+${capitulo.value}:${verso.value}?translation=almeida`);
 
     const {book_id, chapter, verse, text} = await apiUrl.json();
     const data = {book_id, chapter, verse, text};
 
-    console.log(apiUrl);
-    console.log(data);
-    console.log(data.toString());
+    // console.log(data.text);
+    resultDiv.innerText = data.text;
 });
