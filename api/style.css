@@ -13,8 +13,7 @@ body {
 }
 
 .fundo {
-    position: absolute;
-    background-repeat: no-repeat;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -94,8 +93,7 @@ button:hover {
         text-align: center;
     }
     .fundo {
-        position: absolute;
-        background-repeat: no-repeat;
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
@@ -117,8 +115,7 @@ button:hover {
         text-align: center;
     }
     .fundo {
-        position: absolute;
-        background-repeat: no-repeat;
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
@@ -141,8 +138,7 @@ button:hover {
         text-align: center;
 }
     .fundo {
-        position: absolute;
-        background-repeat: no-repeat;
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
