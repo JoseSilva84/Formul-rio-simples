@@ -9,52 +9,50 @@ const buscarVersiculoBtn = document.getElementById('buscarVersiculo');
 const resultDiv = document.getElementById('result');
 
 livro.innerHTML = `
-    <option value="selecao" selected>Selecione o livro</option>
-            <option value="GEN">Gênesis</option>
-            <option value="EXO">Êxodo</option>
-            <option value="LEV">Levítico</option>
-            <option value="NUM">Números</option>
-            <option value="DEU">Deuteronômio</option>
-            <option value="JOS">Josué</option>
-            <option value="JDG">Juízes</option>
-            <option value="RUT">Rute</option>
-            <option value="1SA">1 Samuel</option>
-            <option value="2SA">2 Samuel</option>
-            <option value="1KI">1 Reis</option>
-            <option value="2KI">2 Reis</option>
-            <option value="1CH">1 Crônicas</option>
-            <option value="2CH">2 Crônicas</option>
-            <option value="EZR">Esdras</option>
-            <option value="NEH">Neemias</option>
-            <option value="EST">Ester</option>
-            <option value="JOB">Jó</option>
-            <option value="PSA">Salmos</option>
-            <option value="PRO">Provérbios</option>
-            <option value="ECC">Eclesiastes</option>
-            <option value="SNG">Cânticos</option>
-            <option value="ISA">Isaías</option>
-            <option value="JER">Jeremias</option>
-            <option value="LAM">Lamentações</option>
-            <option value="EZK">Ezequiel</option>
-            <option value="DAN">Daniel</option>
-            <option value="HOS">Oseias</option>
-            <option value="JOL">Joel</option>
-            <option value="AMO">Amós</option>
-            <option value="OBA">Obadias</option>
-            <option value="JON">Jonas</option>
-            <option value="MIC">Miquéias</option>
-            <option value="NAM">Naum</option>
-            <option value="HAB">Habacuque</option>
-            <option value="ZEP">Sofonias</option>
-            <option value="HAG">Ageu</option>
-            <option value="ZAC">Zacarias</option>
-            <option value="MAL">Malaquias</option>
+    <option value="GEN">Gênesis</option>
+    <option value="EXO">Êxodo</option>
+    <option value="LEV">Levítico</option>
+    <option value="NUM">Números</option>
+    <option value="DEU">Deuteronômio</option>
+    <option value="JOS">Josué</option>
+    <option value="JDG">Juízes</option>
+    <option value="RUT">Rute</option>
+    <option value="1SA">1 Samuel</option>
+    <option value="2SA">2 Samuel</option>
+    <option value="1KI">1 Reis</option>
+    <option value="2KI">2 Reis</option>
+    <option value="1CH">1 Crônicas</option>
+    <option value="2CH">2 Crônicas</option>
+    <option value="EZR">Esdras</option>
+    <option value="NEH">Neemias</option>
+    <option value="EST">Ester</option>
+    <option value="JOB">Jó</option>
+    <option value="PSA">Salmos</option>
+    <option value="PRO">Provérbios</option>
+    <option value="ECC">Eclesiastes</option>
+    <option value="SNG">Cânticos</option>
+    <option value="ISA">Isaías</option>
+    <option value="JER">Jeremias</option>
+    <option value="LAM">Lamentações</option>
+    <option value="EZK">Ezequiel</option>
+    <option value="DAN">Daniel</option>
+    <option value="HOS">Oseias</option>
+    <option value="JOL">Joel</option>
+    <option value="AMO">Amós</option>
+    <option value="OBA">Obadias</option>
+    <option value="JON">Jonas</option>
+    <option value="MIC">Miquéias</option>
+    <option value="NAM">Naum</option>
+    <option value="HAB">Habacuque</option>
+    <option value="ZEP">Sofonias</option>
+    <option value="HAG">Ageu</option>
+    <option value="ZAC">Zacarias</option>
+    <option value="MAL">Malaquias</option>
 `;
 
 secao.addEventListener('change', () => {
     if (secao.value === antigoTestamento.value) {
         livro.innerHTML = `
-            <option value="selecao1" selected>Selecione o livro</option>
             <option value="GEN">Gênesis</option>
             <option value="EXO">Êxodo</option>
             <option value="LEV">Levítico</option>
@@ -97,7 +95,6 @@ secao.addEventListener('change', () => {
         `;
     } else if (secao.value === novoTestamento.value) {
             livro.innerHTML = `
-                <option value="selecao2" selected>Selecione o livro</option>
                 <option value="MAt">Mateus</option>
                 <option value="MRK">Marcos</option>
                 <option value="LUK">Lucas</option>
@@ -138,11 +135,23 @@ buscarVersiculoBtn.addEventListener('click', async (event) => {
 
     const apiUrl = await fetch(`https://bible-api.com/${input}+${capitulo.value}:${verso.value}?translation=almeida`);
 
-    const {book_id, chapter, verse, text} = await apiUrl.json();
+    const resposta = await apiUrl.json();
+
+    const {book_id, chapter, verse, text} = resposta.verses[0];
     const data = {book_id, chapter, verse, text};
 
+    // pega todos os versos em array de objetos simplificados
+    const todosOsItens = resposta.verses.map(item => ({
+        book_id: item.book_id,
+        chapter: item.chapter,
+        verse: item.verse,
+        text: item.text
+    }));
+    console.log(todosOsItens);
+    console.log(todosOsItens[0].verse);
+
     console.log(data.book_id);
-    // console.log(data.text);
+    console.log(data.verse);
     resultDiv.innerHTML = data.text;
 });
 
@@ -153,10 +162,12 @@ verso.addEventListener('input', async (event) => {
 
     const apiUrl = await fetch(`https://bible-api.com/${input}+${capitulo.value}:${verso.value}?translation=almeida`);
 
-    const {book_id, chapter, verse, text} = await apiUrl.json();
+    const resposta = await apiUrl.json();
+
+    const {book_id, chapter, verse, text} = resposta.verses[0];
     const data = {book_id, chapter, verse, text};
 
-    console.log(data.book_id);
-    // console.log(data.text);
+    // console.log(data.book_id);
+    // console.log(data.verse);
     resultDiv.innerHTML = data.text;
 });
